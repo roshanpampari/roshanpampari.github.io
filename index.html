@@ -1,4 +1,3 @@
- 
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,6 +15,15 @@
       --brand: #7c3aed;       /* purple */
       --brand-2: #22d3ee;     /* cyan */
       --ring: rgba(124, 58, 237, .35);
+    }
+    [data-theme="light"] {
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --muted: #4b5563;
+      --text: #0b0f17;
+      --brand: #7c3aed;
+      --brand-2: #06b6d4;
+      --ring: rgba(124,58,237,.25);
     }
     * { box-sizing: border-box }
     html, body { height: 100% }
@@ -52,7 +60,7 @@
     p.lead { font-size: 1.15rem; color: var(--muted); max-width: 62ch }
     .card { background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)); border: 1px solid rgba(255,255,255,.06); border-radius: 18px; padding: 1.1rem }
     .card:hover { border-color: rgba(255,255,255,.12) }
-    .section { padding: 2.6rem 0 }
+    $1 padding: 4rem 0; border-top: 1px solid rgba(255,255,255,.06); }
     .section h2 { font-size: 1.9rem; margin: 0 0 1rem }
     .kicker { color: var(--brand-2); font-weight:700; letter-spacing:.06em; text-transform: uppercase; font-size:.8rem }
     .skills { grid-template-columns: repeat(3, 1fr) }
@@ -116,31 +124,10 @@
   <main id="top" class="hero">
     <div class="container grid hero-grid">
       <div class="reveal">
-        <div class="badge">Open to 2025–26 SWE/Data roles</div>
-        <h1>Software Engineer & Data Science Grad @ UMass Dartmouth</h1>
-        <p class="lead">I build fast, reliable systems and insightful ML solutions. Previously at <strong>Siemens</strong> (C++/Windows internals, performance, security). Now pursuing an MS in Data Science; I love shipping clean code and clear stories from data.</p>
-        <div class="row mt-3">
-          <a class="btn" href="#projects">See Projects</a>
-          <a class="btn ghost" href="Resume.pdf" target="_blank" rel="noreferrer">Download Résumé</a>
-        </div>
-        <div class="row mt-3 wrap">
-          <span class="pill">C++</span>
-          <span class="pill">Python</span>
-          <span class="pill">SQL</span>
-          <span class="pill">Data Structures & Algorithms</span>
-          <span class="pill">Machine Learning</span>
-          <span class="pill">Distributed Systems</span>
+        <div class="card" aria-label="Profile graphic">
+          <img alt="decorative gradient" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='600'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%237c3aed'/%3E%3Cstop offset='100%25' stop-color='%230b0f17'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E'" style="border-radius:14px" />
         </div>
       </div>
-      <div class="reveal">
-        <div class="card" aria-label="Profile summary">
-          <img alt="decorative gradient" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='600'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%237c3aed'/%3E%3Cstop offset='100%25' stop-color='%230b0f17'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E" style="border-radius:14px" />
-          <p class="muted mb-0">Quick links</p>
-          <div class="row mt-2">
-            <a class="pill" href="https://github.com/roshanpampari" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="pill" href="https://linkedin.com/in/roshan-pampari" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="pill" href="#contact">Email</a>
-          </div>
         </div>
       </div>
     </div>
@@ -245,23 +232,15 @@
 
   <!-- Contact -->
   <section id="contact" class="section container">
-    <h2 class="kicker">Say hi</h2>
-    <h2 class="mb-3">Contact</h2>
-    <div class="grid contact-grid">
-      <form class="card reveal" onsubmit="event.preventDefault(); alert('Wire this form to EmailJS, Formspree, or a serverless function.');">
-        <div class="row">
-          <input class="input" placeholder="Your name" required />
-          <input class="input" type="email" placeholder="Your email" required />
+    <h2 class="kicker">Contact</h2>
+    <h2 class="mb-3">Get in touch</h2>
+    <div class="grid" style="grid-template-columns: 1fr;">
+      <div class="card reveal">
+        <div class="row wrap">
+          <a class="pill" href="mailto:roshanpampari7@gmail.com">roshanpampari7@gmail.com</a>
+          <a class="pill" target="_blank" rel="noreferrer" href="https://linkedin.com/in/roshan-pampari">LinkedIn</a>
         </div>
-        <textarea class="input mt-2" rows="5" placeholder="Tell me about your project..."></textarea>
-        <button class="btn mt-2" type="submit">Send Message</button>
-      </form>
-      <div class="reveal">
-        <div class="card">
-          <p class="mb-2">Prefer email?</p>
-          <p class="mb-2"><a class="btn ghost" href="mailto:roshanpampari7@gmail.com">roshanpampari7@gmail.com</a></p>
-          <p class="muted">Or DM me on <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
-        </div>
+        <p class="muted mt-2 mb-0">Prefer email or LinkedIn — no contact form.</p>
       </div>
     </div>
   </section>
@@ -279,14 +258,18 @@
     // year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // theme toggle (simple accent swap)
+    // theme toggle (dark ↔ light with localStorage)
     const toggle = document.getElementById('themeToggle');
-    let alt = false;
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') document.body.setAttribute('data-theme','light');
+    function setIcon(){ toggle.textContent = document.body.getAttribute('data-theme') === 'light' ? '🌤️' : '🌙'; }
+    setIcon();
     toggle?.addEventListener('click', () => {
-      alt = !alt;
-      document.documentElement.style.setProperty('--brand', alt ? '#06b6d4' : '#7c3aed');
-      document.documentElement.style.setProperty('--brand-2', alt ? '#a78bfa' : '#22d3ee');
-      toggle.textContent = alt ? '🌤️' : '🌙';
+      const isLight = document.body.getAttribute('data-theme') === 'light';
+      if (isLight) { document.body.removeAttribute('data-theme'); localStorage.setItem('theme','dark'); }
+      else { document.body.setAttribute('data-theme','light'); localStorage.setItem('theme','light'); }
+      setIcon();
     });
 
     // reveal on scroll
